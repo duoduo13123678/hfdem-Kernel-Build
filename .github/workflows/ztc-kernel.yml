@@ -74,9 +74,9 @@ jobs:
           echo "Using branch for SUSFS: $SUSFS_BRANCH"
 
           # Clone repositories using the branch names
-          git clone https://github.com/WildPlusKernel/AnyKernel3.git -b "$ANYKERNEL_BRANCH"
+          git clone https://github.com/WildKernel/AnyKernel3.git -b "$ANYKERNEL_BRANCH"
           git clone https://gitlab.com/simonpunk/susfs4ksu.git -b "$SUSFS_BRANCH"
-          git clone https://github.com/WildPlusKernel/kernel_patches.git
+          git clone https://github.com/WildKernel/kernel_patches.git
           # Sukisu的补丁仓库
           git clone https://github.com/ShirkNeko/SukiSU_patch.git
           # next修复补丁
@@ -120,12 +120,12 @@ jobs:
         run: |
           echo "更改为配置目录: $CONFIG..."
           cd "$CONFIG"
-          curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s susfs-main
+          curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash
 
       - name: 获取 KSU & SUSFS 版本
         run: |
           echo "This is the SukiSU variant"
-          git clone https://github.com/SukiSU-Ultra/SukiSU-Ultra.git KernelSU
+          git clone https://github.com/ReSukiSU/ReSukiSU.git KernelSU
           VAR=700
           cd KernelSU
 
@@ -320,8 +320,8 @@ jobs:
         id: add_KSU
         continue-on-error: true
         run: |
-          echo "SukiSU..."
-          REPO="SukiSU-Ultra/SukiSU-Ultra"
+          echo "ReSukiSU..."
+          REPO="ReSukiSU/ReSukiSU"
 
           FILENAME="build-manager.yml"
           KSUM="manager"
@@ -365,8 +365,8 @@ jobs:
           done
           
           # 下载 Manager 文件
-          curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o "SUKISU-管理器(${{ env.KSU_VERSION }}).zip" "$DOWNLOAD_URL"
-          echo "Manager 文件已下载为：SUKISU-管理器(${{ env.KSU_VERSION }}).zip"
+          curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o "RESUKISU-管理器(${{ env.KSU_VERSION }}).zip" "$DOWNLOAD_URL"
+          echo "Manager 文件已下载为：RESUKISU-管理器(${{ env.KSU_VERSION }}).zip"
           unzip *.zip
           rm -rf *.zip
   
