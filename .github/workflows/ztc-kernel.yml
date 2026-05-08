@@ -125,7 +125,7 @@ jobs:
       - name: 获取 KSU & SUSFS 版本
         run: |
           echo "This is the SukiSU variant"
-          git clone https://github.com/ReSukiSU/ReSukiSU.git KernelSU
+          git clone https://github.com/SukiSU-Ultra/SukiSU-Ultra.git KernelSU
           VAR=700
           cd KernelSU
 
@@ -366,8 +366,8 @@ jobs:
         id: add_KSU
         continue-on-error: true
         run: |
-          echo "ReSukiSU..."
-          REPO="ReSukiSU/ReSukiSU"
+          echo "SukiSU-Ultra..."
+          REPO="SukiSU-Ultra/SukiSU-Ultra"
 
           FILENAME="build-manager.yml"
           KSUM="manager"
@@ -411,8 +411,8 @@ jobs:
           done
           
           # 下载 Manager 文件
-          curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o "RESUKISU-管理器(${{ env.KSU_VERSION }}).zip" "$DOWNLOAD_URL"
-          echo "Manager 文件已下载为：RESUKISU-管理器(${{ env.KSU_VERSION }}).zip"
+          curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o "SukiSU-Ultra-管理器(${{ env.KSU_VERSION }}).zip" "$DOWNLOAD_URL"
+          echo "Manager 文件已下载为：SukiSU-Ultra-管理器(${{ env.KSU_VERSION }}).zip"
           unzip *.zip
           rm -rf *.zip
   
